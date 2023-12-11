@@ -24,6 +24,12 @@ variable "AWS_SESSION_TOKEN" {
   sensitive   = true
 }
 
+variable "AWS_PROFILE" {
+  type        = string
+  description = "AWS Profile that resources are created in"
+  default     = "default"
+}
+
 variable "eks_cluster_name" {
   type        = string
   description = "EKS cluster name"

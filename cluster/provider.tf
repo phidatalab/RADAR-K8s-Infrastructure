@@ -3,6 +3,7 @@ provider "aws" {
   access_key = var.AWS_ACCESS_KEY_ID
   secret_key = var.AWS_SECRET_ACCESS_KEY
   token      = var.AWS_SESSION_TOKEN
+  profile    = var.AWS_PROFILE
 }
 
 provider "kubernetes" {
@@ -11,7 +12,7 @@ provider "kubernetes" {
 
   exec {
     api_version = "client.authentication.k8s.io/v1beta1"
-    args        = ["eks", "get-token", "--cluster-name", module.eks.cluster_name, "--region", var.AWS_REGION]
+    args        = ["eks", "get-token", "--cluster-name", module.eks.cluster_name, "--region", var.AWS_REGION, "--profile", var.AWS_PROFILE]
     command     = "aws"
   }
 }

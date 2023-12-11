@@ -97,6 +97,7 @@ module "eks" {
 
   eks_managed_node_groups = {
     dmz = {
+      name         = "${var.eks_cluster_name}-dmz"
       desired_size = var.dmz_node_size["desired"]
       min_size     = var.dmz_node_size["min"]
       max_size     = var.dmz_node_size["max"]
@@ -129,6 +130,7 @@ module "eks" {
     }
 
     worker = {
+      name         = "${var.eks_cluster_name}-worker"
       desired_size = var.worker_node_size["desired"]
       min_size     = var.worker_node_size["min"]
       max_size     = var.worker_node_size["max"]
